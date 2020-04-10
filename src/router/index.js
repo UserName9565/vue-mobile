@@ -5,12 +5,40 @@ Vue.use(Router)
 export const router = [
   {
     path: '/',
-    name: 'index',
-    component: () => import('@/views/home/index'),
+    name: 'navebar',
+    component: () => import('@/views/navebar'),
+    meta: {
+      keepAlive: false
+    },
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('@/views/home/index'),
+        meta: {
+          keepAlive: false
+        }
+      }
+     
+    ]
+  },
+  {
+    path: '/sign',
+    name: 'sign',
+    component: () => import('@/views/sign/index'),
     meta: {
       keepAlive: false
     }
-  }
+  },
+  {
+    path: '/signarure',
+    name: 'signarure',
+    component: () => import('@/views/signarure/index'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  
 ]
 
 const createRouter = () =>

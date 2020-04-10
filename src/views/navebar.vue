@@ -1,9 +1,20 @@
 <!-- home -->
 <template>
-<div>
-    <van-cell icon="success" v-for="item in list" :key="item" :title="item" />
-
-</div>
+  <div class="app-container">
+    <div class="warpper">
+      <h1 class="demo-home__title"><img src="https://imgs.solui.cn/weapp/logo.png" /><span>VUE H5开发模板</span></h1>
+      <h2 class="demo-home__desc">
+        A vue h5 template with Vant UI
+      </h2>
+    </div>
+    <router-view :key="key" />
+    <!-- <van-cell icon="success" v-for="item in list" :key="item" :title="item" /> -->
+    <van-tabbar fixed v-model="active" @change="onChange">
+      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item icon="good-job-o">签字</van-tabbar-item>
+      <van-tabbar-item icon="home-o">盖章</van-tabbar-item>
+    </van-tabbar>
+  </div>
 </template>
 
 <script>
@@ -11,7 +22,14 @@
 import {getUserInfo} from '@/api/user.js'
 export default {
   components: {},
- 
+  computed: {
+    cachedViews() {
+      return this.$store.state.tagsView.cachedViews
+    },
+    key() {
+      return this.$route.path
+    }
+  },
   data() {
     return {
       active: 0,
@@ -31,6 +49,8 @@ export default {
       ]
     }
   },
+
+
   mounted() {
     this.initData()
   },
@@ -39,9 +59,19 @@ export default {
     // 请求数据案例
     initData() {
       // 请求接口数据，仅作为展示，需要配置src->config下环境文件
-    
+      getUserInfo()
+        .then(() => {})
+        .catch(() => {})
     },
-    
+    onChange(index) {
+       if(index==0){
+           this.$router.push('/')
+       }else if(index==1){
+         this.$router.push('/sign')
+       }else if(index==2){
+         this.$router.push('/signarure')
+       }
+    }
   }
 }
 </script>
