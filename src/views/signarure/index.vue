@@ -2,14 +2,14 @@
 <div class="wihi">
 	<div class="move-box">
 		<div class="step-img wihi">
-			<img :srcs="" ref="imags" />
+			<img :src="srcs" ref="imags" />
 		</div>
 		<Moveable
+      v-show="shows"
 			ref="moveable"
 			class="moveable"
 			v-bind="moveable"
 			@drag="handleDrag"
-			
 			@resize="handleResize"
 			@scale="handleScale"
 			@rotate="handleRotate"
@@ -33,9 +33,17 @@ export default {
   components: {
     Moveable,
   },
-  data: () => ({
-	srcs:'../../../static/test-000.png',
+  data(){
+   return  {
+     shows:false,
+    srcs:require('../../../static/test-000.png'),
+    signWidth:"", 
+    signHeight :"", 
+    dpiScale1 :"", 
+    dpiScale2:"", 
+    scale:"",
     moveable: {
+      baseDirection:[10, 10],
       draggable: true,
       throttleDrag: 0,
       resizable: false,
@@ -51,10 +59,11 @@ export default {
 	  innerBounds : { left: 500, top: 500, width: 100, height: 100},
 	  bounds : { left: 0, right: 1000, top: 0, bottom: 1000}
     }
-  }),
+  }
+  },
   mounted(){
-	//   this.count();
-	  this.$refs.moveable.className = 'move-box'
+	  this.count();
+ 
   },
   methods: {
     handleDrag({ target, transform }) {
@@ -83,47 +92,62 @@ export default {
     },
     handlePinch({ target }) {
       console.log('onPinch', target);
-	},
-	count(){
-     
-    	this.getImageWidth(this.srcs,(w,h)=>{
+    },
+    count(){
+      
+      this.getImageWidth(this.srcs,(w,h)=>{
 
-			var widths = this.$refs.imags.width();
-			console.log(widths)
-			scale = widths/w;
-			dpiScale1 = w/595;//a4纸的api
-			dpiScale2 = h/842//
-			getImageWidth(this.$refs.mark.attr("src"),function(w1,h1){
-				//  signScale = 
-				signWidth =  w1*scale;
-				signHeight = h1*scale;
-				this.$refs.mark.css({
-					width:signWidth,
-					heigth:signHeight,
-				})
-			})
-		})
-  }, 
-  getImageWidth(url, callback) {
-     
-    var img = new Image();
-    img.src = url;
-   
-    // 如果图片被缓存，则直接返回缓存数据
-    if(img.complete) {
-      callback(img.width, img.height);
-    } else {
-      // 完全加载完毕的事件
-      img.onload = function() {
+        var widths = this.$refs.imags.width;
+        console.log(widths)
+        this.scale = widths/w;
+        this.dpiScale1 = w/595;//a4纸的api
+        this.dpiScale2 = h/842//
+        this.getImageWidth(this.$refs.mark.getAttribute("src"),(w1,h1)=>{
+        //  signScale = 
+          this.signWidth =  w1*this.scale;
+          this.signHeight = h1*this.scale;
+          console.log(this.signWidth,this.signHeight)
+          var moveable = document.getElementsByClassName("moveable");
+          for(var i = 0;i<moveable.length;i++){
+             
+            moveable[i].style.width = this.signWidth+"px";
+            moveable[i].style.heiight = this.signHeight+"px";
+          }
+          this.shows = true;
+          // moveable.forEach((i,o)=>{
+          //   console.log(o)
+          // })
+          // this.$refs.moveable.container.style.width = this.signWidth;
+          // this.$refs.moveable.container.style.heiight = this.signHeight;
+          // console.log(this.$refs.moveable)
+          
+          // ({
+          //   width:this.signWidth,
+          //   heigth:this.signHeight,
+          // })
+        })
+      })
+    }, 
+    getImageWidth(url, callback) {
+      
+      var img = new Image();
+      img.src = url;
+    
+      // 如果图片被缓存，则直接返回缓存数据
+      if(img.complete) {
         callback(img.width, img.height);
+      } else {
+        // 完全加载完毕的事件
+        img.onload = function() {
+          callback(img.width, img.height);
+        }
       }
+    
     }
-   
-  }
   }
 }
 </script>
-<style lang="scss">
+ <style lang="scss">
 .wihi{
 	height:100%;
 	width:100%;
@@ -141,5 +165,9 @@ export default {
 }
 .moveable{
 	position: absolute;
+  img{
+    width:100%;
+    height:100%;
+  }
 }
 </style>

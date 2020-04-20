@@ -7,7 +7,9 @@ import store from './store'
 // 引入全局样式
 import '@/assets/css/index.scss'
 import vueSignature from "vue-signature"
+import VueDragResize from 'vue-drag-resize'
 
+Vue.component('vue-drag-resize', VueDragResize)
 // 全局引入按需引入UI库 vant
 
 import '@/plugins/vant'

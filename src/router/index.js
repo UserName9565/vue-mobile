@@ -33,7 +33,7 @@ export const router = [
   {
     path: '/signarure',
     name: 'signarure',
-    component: () => import('@/views/signarure/index'),
+    component: () => import('@/views/signarure/drags'),
     meta: {
       keepAlive: false
     }
