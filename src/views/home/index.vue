@@ -1,14 +1,14 @@
 <!-- home -->
 <template>
 <div>
-    <van-cell icon="success" v-for="item in list" :key="item" :title="item" />
+    <!-- <van-cell icon="success" v-for="item in list" :key="item" :title="item" /> -->
 
 </div>
 </template>
 
 <script>
 // 请求接口
-import {getUserInfo} from '@/api/user.js'
+import {getUserInfo} from '@/api/sign.js'
 export default {
   components: {},
  

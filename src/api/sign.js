@@ -3,9 +3,9 @@ import request from '@/utils/request'
 // api
 
 // 登录
-export function login(params) {
+export function qrSave(params,baseUrl) {
   return request({
-    url: '/user/login',
+    url: baseUrl+'/qrSealSave',
     method: 'post',
     data: qs.stringify(params)
   })

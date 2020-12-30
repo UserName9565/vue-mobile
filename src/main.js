@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 // 引入全局样式
 import '@/assets/css/index.scss'
+import '@/assets/font/iconfont.css'
 import vueSignature from "vue-signature"
 import VueDragResize from 'vue-drag-resize'
 

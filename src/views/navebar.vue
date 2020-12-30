@@ -19,7 +19,7 @@
 
 <script>
 // 请求接口
-import {getUserInfo} from '@/api/user.js'
+import {getUserInfo} from '@/api/sign.js'
 export default {
   components: {},
   computed: {

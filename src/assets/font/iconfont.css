@@ -1,0 +1,33 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1597822477477'); /* IE9 */
+  src: url('iconfont.eot?t=1597822477477#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOIAAsAAAAAB3QAAAM7AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDIgqCNIITATYCJAMMCwgABCAFhG0HQxuCBlFUTnJkX2DbsCeIVIgQAqAaBnAywgEe5BixAIMBCADx8N9+/9tnZp5q+z+pRtHVSaqJDqGSIDaPhEb3zCLey7XcIguTkiIihQebXI4nly+jBvZloSpkFapWuA6M0wkVUBJQyXa7TelEh/LqhZSevgDeTjlKJNQUY0/S6LvP/73T37IJOK99y3GtRb9H0adOgHFAAe5lY1GiBZKgN4xd0BKPE2hblC/surN/HGIV5rhAvOJMgdiMR2kgQ1OoVywt4r0ozfQ2fQPeBd+Pv0ojlqSWmVNvvOzQofkH50dN3qxmTXkU7XQhsFVkbAGFeFoZuS8iqmyJ0Fb7R9oD6oqQpkpVFQG3SqPZ6hv9w0uSIOrMxi44h9XCjxyHJvhRRZP4Ua1JrDVQ9wxNGdQ9FOMO8JopnLpDksed5IVRcSX5uK7P388aEmfDk+aVnubieqqYutgQ5u4/O/GwLsh3ZrGJLr50Mdc+W8fEO6hsHDO45nQ62LefposDUg+f6s/h4qevvb14iwvyx09uF2s43dNk6+fnw5VvV/ow9laMTxqKcf9xj6OTE/MLV1ci0efXvS7Pzy/cUGfGmeu+ZcpQZby6vNy2B56SrdT7h0MyaDjTUiaBf1npgGMk/1ykOv4n2jweKbr07mp5Vfw7Sral/nLCVabdzCpItq2YA6jkL7k1qJ0/ct0P+Y2vszniUUr9v2angO/q/x5MV4ruDE0Jpn392o4tRdOb3lwUjaMxYtnxyYcSkGijykyM/Q13zG6qFppmCZKGBWRNS5wi2EJNxxHqms7QtqlrdceEECFKCxv2AMLQK5K+D8iG3jlF8IuauX/UDSMCbTcjY8uOleDxbQIViTpRlwjXPJfafhkfkqPIQrYi0vpANoki4HlSUlicr3ehi2KKGcE8K5WSEio8h3SC09C2PeILz0RNFhpS+rVFRbTqRYWa50C8KwJSSEhHqJYQnMbjol5nKb7w+VGICbEpRAOrqj4JCQHeO1GiUHEHTpfF7cS6lUsC85hSkkQRlOBxEJ1gELLZPIRfPciENFIhY0DJV6vIake7WgqXtznvtwvazDNypMhRdN9wxWU+L9A8fyneCClq7AYAAA==') format('woff2'),
+  url('iconfont.woff?t=1597822477477') format('woff'),
+  url('iconfont.ttf?t=1597822477477') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1597822477477#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconxiangpi-copy:before {
+  content: "\e639";
+}
+
+.iconxiangpi:before {
+  content: "\e624";
+}
+
+.iconhuabi-copy:before {
+  content: "\e638";
+}
+
+.iconhuabi:before {
+  content: "\e637";
+}
+

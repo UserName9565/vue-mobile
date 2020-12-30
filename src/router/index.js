@@ -3,27 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 export const router = [
+   
   {
     path: '/',
-    name: 'navebar',
-    component: () => import('@/views/navebar'),
-    meta: {
-      keepAlive: false
-    },
-    children: [
-      {
-        path: '/',
-        name: 'home',
-        component: () => import('@/views/home/index'),
-        meta: {
-          keepAlive: false
-        }
-      }
-     
-    ]
-  },
-  {
-    path: '/sign',
     name: 'sign',
     component: () => import('@/views/sign/index'),
     meta: {
@@ -38,6 +20,14 @@ export const router = [
       keepAlive: false
     }
   },
+  {
+    path: '/sign2',
+    name: 'sign2',
+    component: () => import('@/views/sign2/index'),
+    meta: {
+      keepAlive: false
+    }
+  }
   
 ]
 
