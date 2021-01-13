@@ -36,8 +36,7 @@ service.interceptors.response.use(
   response => {
     Toast.clear()
     const res = response.data
-    console.log(res)
-    if (res.code && res.code !== 200) {
+    if (res.code && res.code != 200) {
        
       return Promise.reject(res || 'error')
     } else {

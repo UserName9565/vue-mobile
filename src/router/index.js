@@ -13,6 +13,14 @@ export const router = [
     }
   },
   {
+    path: '/sign',
+    name: 'sign',
+    component: () => import('@/views/sign/index'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
     path: '/signarure',
     name: 'signarure',
     component: () => import('@/views/signarure/drags'),

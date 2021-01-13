@@ -2,12 +2,12 @@ import qs from 'qs'
 import request from '@/utils/request'
 // api
 
-// 登录
+
 export function qrSave(params,baseUrl) {
   return request({
-    url: baseUrl+'/qrSealSave',
+    url: baseUrl+'/seal-api/tPageSealService/saveQrCode',
     method: 'post',
-    data: qs.stringify(params)
+    data: params
   })
 }
 // 用户信息

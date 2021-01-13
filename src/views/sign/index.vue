@@ -22,7 +22,7 @@
         <div class="box" ref="box">
 			
 			<span class="colors">
-				<a  v-for="(item,index) in colors" @click="changeColor(item)" :class="{current:colorIndex==index}"  :style="{backgroundColor:item.color}"><i></i></a>
+				<a  v-for="(item,index) in colors" @click="changeColor(item)" :class="{current:colorIndex==index}"  :style="{backgroundColor:item.color}" :key="index"><i></i></a>
 			</span>
 				<span class="iconfont classicon" @click.stop="lineTag = !lineTag" style="color:#1296DB;position:relative;margin-right:10px;margin-left:20px;">&#xe637;</span>
 			 <div style="position:relative;display:inline-block;background-color:#fff;">
@@ -78,6 +78,7 @@ export default {
     
 	data() {
 		return {
+			// rotate：0  不旋转  1 旋转
 			textTag:true,
 			show:false,
 			phoneHeight:0,
@@ -151,9 +152,9 @@ export default {
 			var curWwwPath=window.document.location.href;
 			var pos=curWwwPath.indexOf('/index.html');
 			this.baseUrl=curWwwPath.substring(0,pos);
+			this.baseUrl = 'http://192.168.1.250:8892'
 		
 			this.id = this.getString("skey");
-			
 			var redirect_url = this.getString("redirect_url")
 			
 			if(redirect_url ){
@@ -171,7 +172,7 @@ export default {
 		getString: function (name) {
 			 
 			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
+			var r = window.location.hash.substr(window.location.hash.indexOf('?')+1).match(reg);
 			if (r != null) {
 				return decodeURIComponent(r[2]);
 			} else {
@@ -258,15 +259,13 @@ export default {
 		sendImg(){
 			var _this = this;
 			var png = _this.$refs.signature.save().split(",")[1];
-			console.log(this.id)
-			console.log(_this.$refs.signature.save())
 			qrSave({
 				skey:this.id,
-    			sealImage:png
+					base64:png,
+					rotate:this.isPortrait? 1: 0
 			},this.baseUrl).then((res) => { 
 				console.log(res);
 				if(res.code!=200){
-					 
 					this.$dialog.alert({
 						title: '',
 						message: res.message
@@ -286,7 +285,12 @@ export default {
 				}
 			})
         	.catch((e) => {
-				 this.$toast.fail('请求失败');
+						console.log(e);
+						try {
+				 			this.$toast.fail(e.data.message);	
+						} catch (error) {
+				 			this.$toast.fail('请求失败');
+						}
 			})
 			 
 		},
