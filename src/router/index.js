@@ -3,14 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 export const router = [
-   
   {
     path: '/',
-    name: 'sign',
-    component: () => import('@/views/sign/index'),
-    meta: {
-      keepAlive: false
-    }
+    name: 'sign1',
+    redirect: '/sign'
   },
   {
     path: '/sign',
@@ -36,7 +32,6 @@ export const router = [
       keepAlive: false
     }
   }
-  
 ]
 
 const createRouter = () =>
