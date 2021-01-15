@@ -31,6 +31,14 @@ export const router = [
     meta: {
       keepAlive: false
     }
+  },
+  {
+    path: '/autograph',
+    name: 'autograph',
+    component: () => import('@/views/sign3/index'),
+    meta: {
+      keepAlive: false
+    }
   }
 ]
 
