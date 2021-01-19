@@ -152,7 +152,7 @@ export default {
 			var curWwwPath=window.document.location.href;
 			var pos=curWwwPath.indexOf('/index.html');
 			this.baseUrl=curWwwPath.substring(0,pos);
-			this.baseUrl = 'http://192.168.1.250:8892'
+			// this.baseUrl = 'http://192.168.1.250:8892'
 		
 			this.id = this.getString("skey");
 			var redirect_url = this.getString("redirect_url")

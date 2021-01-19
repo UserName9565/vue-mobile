@@ -6,10 +6,10 @@ export const router = [
   {
     path: '/',
     name: 'sign1',
-    redirect: '/sign'
+    redirect: '/pageindex'
   },
   {
-    path: '/sign',
+    path: '/pageindex',
     name: 'sign',
     component: () => import('@/views/sign/index'),
     meta: {
