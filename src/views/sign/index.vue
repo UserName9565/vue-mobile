@@ -71,8 +71,8 @@
 import {qrSave} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
 import '@/plugins/create.js'
- import VConsole from 'vconsole';
- let vConsole = new VConsole();
+//  import VConsole from 'vconsole';
+//  let vConsole = new VConsole();
 export default {
     name: "app",
     
@@ -151,7 +151,7 @@ export default {
 		init(){
 			var curWwwPath=window.document.location.href;
 			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos);
+			this.baseUrl=curWwwPath.substring(0,pos).replace('/page','');
 			// this.baseUrl = 'http://192.168.1.250:8892'
 		
 			this.id = this.getString("skey");
@@ -550,6 +550,8 @@ text-size-adjust : 100%;
 	  margin-right:20px;
 	  position: relative;
 	  top:-2px;
+		padding-right: 200px;
+		box-sizing: border-box;
 	  button{
 		  font-size:10px;
 		//   padding:5px;
