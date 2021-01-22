@@ -51,7 +51,7 @@
 				<span class="iconfont classicon" @click="clear" style="color:#1296DB;position:relative;margin-left:10px;">&#xe624;</span>
 				<div class="buttons">
 					<van-button v-if="redirect_url" @click="backUrl">返回</van-button>
-					<van-button type="info" @click="sendImg">确定</van-button>
+					<van-button type="info" style="height:46px;" @click="sendImg">确定</van-button>
 				</div>
 			<div>
 
@@ -71,8 +71,8 @@
 import {qrSave1} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
 import '@/plugins/create.js'
- import VConsole from 'vconsole';
- let vConsole = new VConsole();
+//  import VConsole from 'vconsole';
+//  let vConsole = new VConsole();
 export default {
     name: "app",
     
@@ -151,9 +151,9 @@ export default {
 		init(){
 			var curWwwPath=window.document.location.href;
 			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos);
+			this.baseUrl=curWwwPath.substring(0,pos).replace('/signPage','');
 			// this.baseUrl = 'http://192.168.1.250:8892'
-			this.baseUrl = 'http://192.168.30.10:8580'
+			// this.baseUrl = 'http://192.168.30.10:8580'
 		
 			this.id = this.getString("skey");
 			var redirect_url = this.getString("redirect_url")
@@ -264,7 +264,7 @@ export default {
 					skey:this.id,
 					// base64:png,
 					dataBase:png,
-					rotate:this.isPortrait? 1: 0
+					rotate:this.isPortrait? '1': '0'
 			},this.baseUrl).then((res) => { 
 				console.log(res);
 				if(res.resp_code!=0){
@@ -550,6 +550,7 @@ text-size-adjust : 100%;
   .buttons{
 	  float:right;
 	  margin-right:20px;
+		padding-right: 200px;
 	  position: relative;
 	  top:-2px;
 	  button{
