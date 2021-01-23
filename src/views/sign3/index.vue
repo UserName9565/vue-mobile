@@ -272,6 +272,8 @@ export default {
 						title: '',
 						message: res.resp_msg
 					}).then(() => {
+						window.opener = null
+						window.open('','_self')
 						window.close()
 					});
 				}else{
