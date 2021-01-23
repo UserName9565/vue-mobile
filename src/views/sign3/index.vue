@@ -272,7 +272,7 @@ export default {
 						title: '',
 						message: res.resp_msg
 					}).then(() => {
-						
+						window.close()
 					});
 				}else{
 					if(_this.redirect_url){
