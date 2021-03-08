@@ -151,7 +151,7 @@ export default {
 		init(){
 			var curWwwPath=window.document.location.href;
 			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos).replace('/signPage','');
+			this.baseUrl=curWwwPath.substring(0,pos).replace('/manage/signPage','');
 			// this.baseUrl = 'http://192.168.1.250:8892'
 			// this.baseUrl = 'http://192.168.30.10:8580'
 		

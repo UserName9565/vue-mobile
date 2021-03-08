@@ -13,7 +13,7 @@ export function qrSave(params,baseUrl) {
 // 冯路
 export function qrSave1(params,baseUrl) {
   return request({
-    url: baseUrl+'/manager/seal/saveSealQr',
+    url: baseUrl+'/manage/seal/saveSealQr',
     method: 'post',
     data: params
   })
