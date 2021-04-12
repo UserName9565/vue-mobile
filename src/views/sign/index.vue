@@ -50,8 +50,8 @@
 			 </div>
 				<span class="iconfont classicon" @click="clear" style="color:#1296DB;position:relative;margin-left:10px;">&#xe624;</span>
 				<div class="buttons">
-					<van-button v-if="redirect_url" @click="backUrl">返回</van-button>
-					<van-button type="info" @click="sendImg">确定</van-button>
+					<van-button class="ag-btn" v-if="redirect_url" @click="backUrl">返回</van-button>
+					<van-button class="ag-btn" type="info" @click="sendImg">确定</van-button>
 				</div>
 			<div>
 
@@ -546,17 +546,18 @@ text-size-adjust : 100%;
 	  height:60px;
   }
   .buttons{
-	  float:right;
-	  margin-right:20px;
-	  position: relative;
-	  top:-2px;
-		padding-right: 200px;
-		box-sizing: border-box;
+	float:right;
+	margin-right:20px;
+	position: relative;
+	top:-2px;
+	padding-right: 40px;
+	box-sizing: border-box;
 	  button{
-		  font-size:10px;
-		//   padding:5px;
-		  height:20px;
-		  line-height: 20px;
+		font-size:10px;
+	//   padding:5px;
+		margin-right:10px;
+		height:20px;
+		line-height: 20px;
 	  }
   }
 //   @media screen and (orientation: portrait) {
