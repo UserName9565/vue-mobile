@@ -7,12 +7,13 @@ function resolve(dir) {
 const name = defaultSettings.title || 'vue mobile template' // page title
 const port = 9018 // dev port
 const externals = {
-  vue: 'Vue',
-  'vue-router': 'VueRouter',
-  vuex: 'Vuex',
-  vant: 'vant',
-  axios: 'axios'
+  // vue: 'Vue',
+  // 'vue-router': 'VueRouter',
+  // vuex: 'Vuex',
+  // vant: 'vant',
+  // axios: 'axios'
 }
+
 // cdn
 const cdn = {
   // 开发环境
@@ -22,14 +23,16 @@ const cdn = {
   },
   // 生产环境
   build: {
-    css: ['https://cdn.jsdelivr.net/npm/vant@beta/lib/index.css'],
+    css:[
+      // 'https://cdn.jsdelivr.net/npm/vant@beta/lib/index.css'
+  ],
     js: [
-      'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.6/vue-router.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.min.js',
-      'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js',
-      'https://cdn.jsdelivr.net/npm/vant@beta/lib/vant.min.js'
+      // 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js',
+      // 'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.6/vue-router.min.js',
+      // 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js',
+      // 'https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.1/vuex.min.js',
+      // 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js',
+      // 'https://cdn.jsdelivr.net/npm/vant@beta/lib/vant.min.js'
     ]
   }
 }

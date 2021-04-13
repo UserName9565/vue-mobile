@@ -17,6 +17,15 @@ export const router = [
     }
   },
   {
+    path: '/comindex',
+    name: 'sign',
+    component: () => import('@/views/sign/comindex'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  
+  {
     path: '/signarure',
     name: 'signarure',
     component: () => import('@/views/signarure/drags'),

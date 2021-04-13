@@ -68,7 +68,7 @@
 
 <script>
 // 请求接口
-import {qrSave} from '@/api/sign.js'
+import {qrSave2} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
 import '@/plugins/create.js'
 //  import VConsole from 'vconsole';
@@ -149,14 +149,14 @@ export default {
     },
 	methods:{
 		init(){
-			var curWwwPath=window.document.location.href;
-			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos).replace('/page','');
+			// var curWwwPath=window.document.location.href;
+			// var pos=curWwwPath.indexOf('/index.html');
+			this.baseUrl= window.location.protocol//curWwwPath.substring(0,pos).replace('/page','');
 			// this.baseUrl = 'http://192.168.1.250:8892'
 		
 			this.id = this.getString("skey");
 			var redirect_url = this.getString("redirect_url")
-			console.log(redirect_url  )
+			
 			if(redirect_url ){
 				 
 				var num = location.hash.indexOf('redirect_url');
@@ -164,7 +164,7 @@ export default {
 				var str = searchs.slice(num,searchs.length);
 				var arr = str.split("redirect_url=")
 				
-				 
+			 
 				this.redirect_url =arr[1];
 				
 			};
@@ -259,7 +259,7 @@ export default {
 		sendImg(){
 			var _this = this;
 			var png = _this.$refs.signature.save().split(",")[1];
-			qrSave({
+			qrSave2({
 				skey:this.id,
 					base64:png,
 					rotate:this.isPortrait? 1: 0

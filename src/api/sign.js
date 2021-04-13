@@ -5,6 +5,13 @@ import request from '@/utils/request'
 // 文文
 export function qrSave(params,baseUrl) {
   return request({
+    url: baseUrl+'/qrSealSave',
+    method: 'post',
+    data: params
+  })
+}
+export function qrSave2(params,baseUrl) {
+  return request({
     url: baseUrl+'/seal-api/tPageSealService/saveQrCode',
     method: 'post',
     data: params
