@@ -156,7 +156,10 @@ export default {
 		
 			this.id = this.getString("skey");
 			var redirect_url = this.getString("redirect_url")
-			console.log(redirect_url  )
+			var accessToken = this.getString("accessToken");
+			if(accessToken){
+				this.accessToken = accessToken;
+			}
 			if(redirect_url ){
 				 
 				var num = location.hash.indexOf('redirect_url');
@@ -262,6 +265,7 @@ export default {
 			qrSave({
 				skey:this.id,
 					base64:png,
+					accessToken:this.accessToken,
 					rotate:this.isPortrait? 1: 0
 			},this.baseUrl).then((res) => { 
 				 

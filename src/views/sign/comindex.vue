@@ -156,7 +156,10 @@ export default {
 		
 			this.id = this.getString("skey");
 			var redirect_url = this.getString("redirect_url")
-			
+			var accessToken = this.getString("accessToken");
+			if(accessToken){
+				this.accessToken = accessToken;
+			}
 			if(redirect_url ){
 				 
 				var num = location.hash.indexOf('redirect_url');
@@ -260,8 +263,9 @@ export default {
 			var _this = this;
 			var png = _this.$refs.signature.save().split(",")[1];
 			qrSave2({
-				skey:this.id,
+					skey:this.id,
 					base64:png,
+					accessToken:this.accessToken,
 					rotate:this.isPortrait? 1: 0
 			},this.baseUrl).then((res) => { 
 				console.log(res);
@@ -287,7 +291,7 @@ export default {
         	.catch((e) => {
 						console.log(e);
 						try {
-				 			this.$toast.fail(e.data.message);	
+				 			this.$toast.fail(e.message);	
 						} catch (error) {
 				 			this.$toast.fail('请求失败');
 						}

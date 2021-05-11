@@ -4,15 +4,27 @@ import request from '@/utils/request'
 
 // 文文
 export function qrSave(params,baseUrl) {
+  let str = ""
+  if(params.accessToken){
+    str = '/platform/openapi/signPage/qrSealSave?accessToken='+params.accessToken
+  }else{
+    str = '/platform/openapi/signPage/qrSealSave'
+  }
   return request({
-    url: baseUrl+'/platform/openapi/signPage/qrSealSave',
+    url: baseUrl+str,
     method: 'post',
     data: params
   })
 }
 export function qrSave2(params,baseUrl) {
+  let str = ""
+  if(params.accessToken){
+    str = '/seal-api/tPageSealService/saveQrCode?accessToken='+params.accessToken
+  }else{
+    str = '/seal-api/tPageSealService/saveQrCode'
+  }
   return request({
-    url: baseUrl+'/seal-api/tPageSealService/saveQrCode',
+    url: baseUrl+str,
     method: 'post',
     data: params
   })
