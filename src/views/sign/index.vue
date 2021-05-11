@@ -264,7 +264,7 @@ export default {
 					base64:png,
 					rotate:this.isPortrait? 1: 0
 			},this.baseUrl).then((res) => { 
-				console.log(res);
+				 
 				if(res.code!=200){
 					this.$dialog.alert({
 						title: '',
@@ -287,7 +287,7 @@ export default {
         	.catch((e) => {
 						console.log(e);
 						try {
-				 			this.$toast.fail(e.data.message);	
+				 			this.$toast.fail(e.message);	
 						} catch (error) {
 				 			this.$toast.fail('请求失败');
 						}
