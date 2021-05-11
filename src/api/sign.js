@@ -5,7 +5,7 @@ import request from '@/utils/request'
 // 文文
 export function qrSave(params,baseUrl) {
   return request({
-    url: baseUrl+'/qrSealSave',
+    url: baseUrl+'/platform/openapi/signPage/qrSealSave',
     method: 'post',
     data: params
   })
