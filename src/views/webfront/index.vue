@@ -68,7 +68,7 @@
 
 <script>
 // 请求接口
-import {qrSave} from '@/api/sign.js'
+import {qrSavewebfront} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
 import '@/plugins/create.js'
 //  import VConsole from 'vconsole';
@@ -90,7 +90,7 @@ export default {
                 backgroundColor:"rgba(255, 255, 255, 0)",
                 minWidth:2.1,
                 maxWidth:7,
-                minDistance: 2,
+                minDistance:2,
 				throttle: 1,
 				// number:5,
 				// velocityFilterWeight:0.6,
@@ -149,13 +149,11 @@ export default {
     },
 	methods:{
 		init(){
-			var curWwwPath=window.document.location.href;
-			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos).replace('/page','');
-			// this.baseUrl = 'http://192.168.1.250:8892'
+			// this.baseUrl= window.location.protocol
+			this.baseUrl = 'http://192.168.1.160:9100'
 		
 			this.id = this.getString("skey");
-			console.log(this.id)
+		 	console.log(this.id)
 			var redirect_url = this.getString("redirect_url")
 			var accessToken = this.getString("accessToken");
 			if(accessToken){
@@ -268,11 +266,11 @@ export default {
 				 return false
 			 }
 			var png = _this.$refs.signature.save().split(",")[1];
-			qrSave({
+			qrSavewebfront({
 				skey:this.id,
-					base64:png,
-					accessToken:this.accessToken,
-					rotate:this.isPortrait? 1: 0
+				base64:png,
+				// accessToken:this.accessToken,
+				rotate:this.isPortrait? 1: 0
 			},this.baseUrl).then((res) => { 
 				 
 				if(res.code!=200){

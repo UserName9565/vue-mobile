@@ -17,6 +17,14 @@ export const router = [
     }
   },
   {
+    path: '/webfront',
+    name: 'webfront',
+    component: () => import('@/views/webfront/index'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
     path: '/comindex',
     name: 'sign',
     component: () => import('@/views/sign/comindex'),

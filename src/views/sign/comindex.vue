@@ -261,6 +261,11 @@ export default {
 		},
 		sendImg(){
 			var _this = this;
+			let isEmpty = _this.$refs.signature.isEmpty();
+			 if(isEmpty){
+				 this.$toast.fail("请签字后提交");
+				 return false
+			 }
 			var png = _this.$refs.signature.save().split(",")[1];
 			qrSave2({
 					skey:this.id,
@@ -422,6 +427,7 @@ body,html{
 	-ms-text-size-adjust: none;
 	text-size-adjust: none
 }
+ 
 #J_wrapper{
 	-webkit-text-size-adjust: none;
 -moz-text-size-adjust: none;
@@ -498,22 +504,22 @@ text-size-adjust : 100%;
      position: relative;
      margin: 0 5px;
      display: inline-block;
-     height: 20px;
-     width: 20px;
+     height: 25px;
+     width: 25px;
      border-radius: 50%;
  }
  .classicon{
-	 font-size:25px;
+	 font-size:30px;
  }
  .colors a.current i {
      border: 1px solid #bbb;
  }
   .colors a i {
      position: absolute;
-     top: -3px;
-    left: -3px;
-     width: 25px;
-     height: 25px;
+     top: -3.5px;
+    left: -3.5px;
+     width: 30px;
+     height: 30px;
      border-radius: 50%;
  }	
  .changeLine{
@@ -557,11 +563,11 @@ text-size-adjust : 100%;
 	padding-right: 40px;
 	box-sizing: border-box;
 	  button{
-		font-size:10px;
+		font-size:14px;
 	//   padding:5px;
 		margin-right:10px;
-		height:20px;
-		line-height: 20px;
+		height:30px;
+		line-height: 30px;
 	  }
   }
 //   @media screen and (orientation: portrait) {

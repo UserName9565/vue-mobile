@@ -45,3 +45,11 @@ export function getUserInfo(params) {
     data: qs.stringify(params)
   })
 }
+// 冯路
+export function qrSavewebfront(params,baseUrl) {
+  return request({
+    url: baseUrl+'/api-sign/http/sealPage/saveQrCode',
+    method: 'post',
+    data: params
+  })
+}
