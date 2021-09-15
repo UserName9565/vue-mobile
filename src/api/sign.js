@@ -32,7 +32,7 @@ export function qrSave2(params,baseUrl) {
 // 冯路
 export function qrSave1(params,baseUrl) {
   return request({
-    url: baseUrl+'/manage/api/seal/saveSealQr',
+    url: baseUrl+'/api/seal/saveSealQr',
     method: 'post',
     data: params
   })

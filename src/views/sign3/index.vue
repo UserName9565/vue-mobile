@@ -151,7 +151,8 @@ export default {
 		init(){
 			var curWwwPath=window.document.location.href;
 			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos).replace('/manage/views/signPage','');
+			this.baseUrl=curWwwPath.substring(0,pos);
+			this.baseUrl = this.baseUrl.substring(0,this.find(this.baseUrl,'/',3))
 			// this.baseUrl = 'http://192.168.1.250:8892'
 			// this.baseUrl = 'http://192.168.30.10:8580'
 		
@@ -259,11 +260,6 @@ export default {
 		},
 		sendImg(){
 			var _this = this;
-			let isEmpty = _this.$refs.signature.isEmpty();
-			 if(isEmpty){
-				 this.$toast.fail("请签字后提交");
-				 return false
-			 }
 			var png = _this.$refs.signature.save().split(",")[1];
 			qrSave1({
 					skey:this.id,
@@ -413,7 +409,14 @@ export default {
 			this.sliderValue = step*s
 			this.qiu.left = step*s+"%";
 
-		 }
+		 },
+		find(str,cha,num){
+			var x=str.indexOf(cha);
+			for(var i=0;i<num;i++){
+				x=str.indexOf(cha,x+1);
+			}
+			return x;
+		}
 		 
 	}
 };
@@ -427,7 +430,6 @@ body,html{
 	-ms-text-size-adjust: none;
 	text-size-adjust: none
 }
- 
 #J_wrapper{
 	-webkit-text-size-adjust: none;
 -moz-text-size-adjust: none;
@@ -504,22 +506,22 @@ text-size-adjust : 100%;
      position: relative;
      margin: 0 5px;
      display: inline-block;
-     height: 25px;
-     width: 25px;
+     height: 20px;
+     width: 20px;
      border-radius: 50%;
  }
  .classicon{
-	 font-size:30px;
+	 font-size:25px;
  }
  .colors a.current i {
      border: 1px solid #bbb;
  }
   .colors a i {
      position: absolute;
-     top: -3.5px;
-    left: -3.5px;
-     width: 30px;
-     height: 30px;
+     top: -3px;
+    left: -3px;
+     width: 25px;
+     height: 25px;
      border-radius: 50%;
  }	
  .changeLine{
@@ -556,18 +558,16 @@ text-size-adjust : 100%;
 	  height:60px;
   }
   .buttons{
-	float:right;
-	margin-right:20px;
-	position: relative;
-	top:-2px;
-	padding-right: 40px;
-	box-sizing: border-box;
+	  float:right;
+	  margin-right:20px;
+		padding-right: 200px;
+	  position: relative;
+	  top:-2px;
 	  button{
-		font-size:14px;
-	//   padding:5px;
-		margin-right:10px;
-		height:30px;
-		line-height: 30px;
+		  font-size:10px;
+		//   padding:5px;
+		  height:20px;
+		  line-height: 20px;
 	  }
   }
 //   @media screen and (orientation: portrait) {
@@ -592,4 +592,3 @@ text-size-adjust : 100%;
 //         }
 //     }
 </style>
-
