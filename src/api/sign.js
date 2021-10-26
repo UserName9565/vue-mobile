@@ -6,9 +6,9 @@ import request from '@/utils/request'
 export function qrSave(params,baseUrl) {
   let str = ""
   if(params.accessToken){
-    str = '/platform/openapi/signPage/qrSealSave?accessToken='+params.accessToken
+    str = '/qrSealSave?accessToken='+params.accessToken
   }else{
-    str = '/platform/openapi/signPage/qrSealSave'
+    str = '/qrSealSave'
   }
   return request({
     url: baseUrl+str,

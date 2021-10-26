@@ -149,11 +149,12 @@ export default {
     },
 	methods:{
 		init(){
-			// this.baseUrl= window.location.protocol
-			this.baseUrl = 'http://192.168.1.160:9100'
-		
+			// this.baseUrl= window.location.protocol;
+			var curWwwPath=window.document.location.href;// 
+			let sts = curWwwPath.split("/api-sign/");
+			this.baseUrl =sts[0]
 			this.id = this.getString("skey");
-		 	console.log(this.id)
+		  
 			var redirect_url = this.getString("redirect_url")
 			var accessToken = this.getString("accessToken");
 			if(accessToken){

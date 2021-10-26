@@ -149,13 +149,15 @@ export default {
     },
 	methods:{
 		init(){
-			var curWwwPath=window.document.location.href;
-			var pos=curWwwPath.indexOf('/index.html');
-			this.baseUrl=curWwwPath.substring(0,pos).replace('/page','');
+			// var curWwwPath=window.document.location.href;
+			// var pos=curWwwPath.indexOf('/index.html');
+			// this.baseUrl=curWwwPath.substring(0,pos).replace('/page','');
 			// this.baseUrl = 'http://192.168.1.250:8892'
-		
+			var curWwwPath=window.document.location.href;// 
+			let sts = curWwwPath.split("/signPage/");
+			this.baseUrl =sts[0]+"/signPage"
 			this.id = this.getString("skey");
-			console.log(this.id)
+		 
 			var redirect_url = this.getString("redirect_url")
 			var accessToken = this.getString("accessToken");
 			if(accessToken){
