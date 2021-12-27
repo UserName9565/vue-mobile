@@ -17,6 +17,14 @@ export const router = [
     }
   },
   {
+    path: '/pod',
+    name: 'sign',
+    component: () => import('@/views/signpod/index'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
     path: '/webfront',
     name: 'webfront',
     component: () => import('@/views/webfront/index'),

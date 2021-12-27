@@ -9,8 +9,11 @@ import '@/assets/css/index.scss'
 import '@/assets/font/iconfont.css'
 import vueSignature from "vue-signature"
 import VueDragResize from 'vue-drag-resize'
-
+import VueSignaturePad from 'vue-signature-pad';
+// import VueSignaturePad from './components/VueSignaturePad';
 Vue.component('vue-drag-resize', VueDragResize)
+
+
 // 全局引入按需引入UI库 vant
 
 import '@/plugins/vant'
@@ -22,6 +25,7 @@ import 'lib-flexible/flexible.js'
 import './filters'
 Vue.config.productionTip = false
 Vue.use(vueSignature)
+Vue.use(VueSignaturePad);
 new Vue({
   el: '#app',
   router,

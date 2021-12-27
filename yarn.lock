@@ -5806,6 +5806,11 @@ merge-descriptors@1.0.1:
   resolved "https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
   integrity sha1-sAqqVW3YtEVoFQ7J0blT8/kMu2E=
 
+merge-images@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.nlark.com/merge-images/download/merge-images-1.2.0.tgz#740117bd655b310fe2046f7c980798ded8d6d4f2"
+  integrity sha1-dAEXvWVbMQ/iBG98mAeY3tjW1PI=
+
 merge-source-map@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/merge-source-map/-/merge-source-map-1.1.0.tgz#2fdde7e6020939f70906a68f2d7ae685e4c8c646"
@@ -8044,6 +8049,11 @@ signature_pad@^2.3.2:
   resolved "https://registry.npmjs.org/signature_pad/-/signature_pad-2.3.2.tgz#ca7230021c89cedeead27b33d8d16ff254e5f04a"
   integrity sha512-peYXLxOsIY6MES2TrRLDiNg2T++8gGbpP2yaC+6Ohtxr+a2dzoaqWosWDY9sWqTAAk6E/TyQO+LJw9zQwyu5kA==
 
+signature_pad@^3.0.0-beta.3:
+  version "3.0.0-beta.4"
+  resolved "https://registry.npmmirror.com/signature_pad/download/signature_pad-3.0.0-beta.4.tgz#2a8441559e9f439e7f2f525da3ee630ef973ecf6"
+  integrity sha1-KoRBVZ6fQ55/L1Jdo+5jDvlz7PY=
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.npmjs.org/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
@@ -9111,6 +9121,15 @@ vue-router@^3.1.5:
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-3.1.6.tgz#45f5a3a3843e31702c061dd829393554e4328f89"
   integrity sha512-GYhn2ynaZlysZMkFE5oCHRUTqE8BWs/a9YbKpNLi0i7xD6KG1EzDqpHQmv1F5gXjr8kL5iIVS8EOtRaVUEXTqA==
 
+vue-signature-pad@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.nlark.com/vue-signature-pad/download/vue-signature-pad-2.0.4.tgz#40faea2af7c4bb6ce1ad35ab1146f0844abf0297"
+  integrity sha1-QPrqKvfEu2zhrTWrEUbwhEq/Apc=
+  dependencies:
+    merge-images "^1.1.0"
+    signature_pad "^3.0.0-beta.3"
+    vue "^2.6.14"
+
 vue-signature@^2.4.3:
   version "2.4.3"
   resolved "https://registry.npmjs.org/vue-signature/-/vue-signature-2.4.3.tgz#5d4efdf481e76264b8f604518e23233d21f8950b"
@@ -9145,6 +9164,11 @@ vue@^2.4.4, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.npmjs.org/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+
+vue@^2.6.14:
+  version "2.6.14"
+  resolved "https://registry.npmmirror.com/vue/download/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+  integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
 
 vuex@^3.1.2:
   version "3.1.3"
