@@ -74,7 +74,7 @@ import { Dialog,Toast } from 'vant';
  import '@/plugins/create.js'
  import jsonData from '../../../static/data.json'
 import { constants } from 'zlib';
-import { setTimeout } from 'timers';
+ 
  console.log(jsonData)
 //  import VConsole from 'vconsole';
 //  let vConsole = new VConsole();
@@ -166,7 +166,28 @@ export default {
 					 this.toimg(item);
 				 },(index+1)*200)
 			})
-			// this.$refs.signature.fromData(jsonData)
+			// this.$refs.signature.fromData(jsonData) 这个是不要的
+
+
+			
+			// jsonData.forEach((item,index)=>{
+			// 	let obj = {
+			// 		p:[],
+			// 		t:[],
+			// 		x:[],
+			// 		y:[]
+			// 	}
+			 
+			// 	item.points.forEach((i,index)=>{
+			// 		obj.p.push(500);
+			// 		obj.t.push(i.time)
+			// 		obj.x.push(i.x)
+			// 		obj.y.push(i.y)
+			// 	})
+			// 	arr.push(obj)
+				 
+			// })
+			// console.log(JSON.stringify(arr))
 			 
 		},
 		toimg(item){
@@ -440,8 +461,7 @@ export default {
 				mins = 5.5
 			}
 			 
-			// this.$refs.signature.sig.maxWidth = s;
-			// this.$refs.signature.sig.minWidth = mins;
+			 
 			this.option.maxWidth = s;
 			this.option.minWidth = s;
 			this.sliderValue = step*s
