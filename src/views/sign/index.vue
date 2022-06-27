@@ -1,68 +1,69 @@
 <template>
-	<div class="container main" id="J_wrapper" @click="lineTag = false">
-		<!-- <div class="title">手写板</div> -->
-		<van-dialog v-model="show" title="">
-			<div style="text-align:center">
-
-				<van-icon style="background-color:#24c7a0;padding:10px;border-radius:50%;margin:20px 0;" name="success" size="80" color="#fff" />
-				<p>提交成功</p>
-			</div>
-		</van-dialog>
-		<div class="canvas-box" id="canvas-box">
+	<div >
+		 
+		 <div class="container main" id="J_wrapper" @click="lineTag = false">
 			 
-			<vueSignature ref="signature" class="dash" id="dash" :sigOption="option" :w="'100%'" :h="'100%'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature> 
-			<div  class="down-cover" ref="down-cover" >
-				<!-- :style="{lineHeight:heights+'px'}" -->
-				<div v-if="textTag" class="centers">
-					<div>请在空白处签字</div>
-					<span style="font-size:12px;letter-spacing:2px;">请横屏签字</span>
-				</div>
-			</div>
-		</div>
-        <div class="box" ref="box">
-			
-			<span class="colors">
-				<a  v-for="(item,index) in colors" @click="changeColor(item)" :class="{current:colorIndex==index}"  :style="{backgroundColor:item.color}" :key="index"><i></i></a>
-			</span>
-				<span class="iconfont classicon" @click.stop="lineTag = !lineTag" style="color:#1296DB;position:relative;margin-right:10px;margin-left:20px;">&#xe637;</span>
-			 <div style="position:relative;display:inline-block;background-color:#fff;">
-				 <div class="changeLine" v-if="lineTag" >
-					<div style="font-size:14px;color:#1296DB">签字笔粗细</div>
-					<div style="margin-top:10px;"> 
-							<div style="position:relative;height:20px;line-height:20px;width:150px;float:left;">
-							 	<img src="../../assets/tiao.png" mode="scaleToFill" style="width:150px;">
-								 <span @touchmove="touchMove" style="position:absolute;display:inline-block;width:30px;height:30px;top:-6px;text-align:center;" :style="qiu">
+			<van-dialog v-model="show" title="">
+				<div style="text-align:center">
 
-									<span  style="border-radius:50%;display:inline-block;width:15px;height:15px;margin-top:7px;" :style="scnei"></span>
-								 </span>
-							</div>
-						 
-							 <span style="display:inline-block;width:30px;text-align:center;font-size:14px;float:left;">{{option.maxWidth}}</span>
-							
-							<!-- <van-slider v-model="option.maxWidth" :min="1" :max="10" @change="onChange"><template #button>
-							<div class="custom-button" :style="{backgroundColor:option.penColor}">
-							{{ option.maxWidth }}
-							</div>
- 						 </template></van-slider> -->
-						 
+					<van-icon style="background-color:#24c7a0;padding:10px;border-radius:50%;margin:20px 0;" name="success" size="80" color="#fff" />
+					<p>提交成功</p>
+				</div>
+			</van-dialog>
+			<div class="canvas-box" id="canvas-box">
+				
+				<!-- <vueSignature ref="signature" class="dash" id="dash" :sigOption="option" :w="'100%'" :h="'100%'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>  -->
+				
+				<div  class="down-cover" ref="down-cover" >
+				
+					<div v-if="textTag" class="centers">
+						<div>请在空白处签字</div>
+						<span style="font-size:12px;letter-spacing:2px;">请横屏签字</span>
 					</div>
 				</div>
-			 </div>
-				<span class="iconfont classicon" @click="clear" style="color:#1296DB;position:relative;margin-left:10px;">&#xe624;</span>
-				<div class="buttons">
-					<van-button class="ag-btn" v-if="redirect_url" @click="backUrl">返回</van-button>
-					<van-button class="ag-btn" type="info" @click="sendImg">确定</van-button>
-				</div>
-			<div>
-
 			</div>
-			<!-- <van-icon class-prefix="iconfont" name="iconxiangpi" /> -->
-            <!-- <button @click="save">Save</button>
-            <button @click="clear">Clear</button>
-            <button @click="undo">Undo</button>
-            <button @click="addWaterMark">addWaterMark</button>
-            <button @click="handleDisabled">disabled</button> -->
-        </div>
+			
+		 </div>
+		 <div class="box" ref="box">
+				
+				<span class="colors">
+					<a  v-for="(item,index) in colors" @click="changeColor(item)" :class="{current:colorIndex==index}"  :style="{backgroundColor:item.color}" :key="index"><i></i></a>
+				</span>
+					<span class="iconfont classicon" @click.stop="lineTag = !lineTag" style="color:#1296DB;position:relative;margin-right:10px;margin-left:20px;">&#xe637;</span>
+				<div style="position:relative;display:inline-block;background-color:#fff;">
+					<div class="changeLine" v-if="lineTag" >
+						<div style="font-size:14px;color:#1296DB">签字笔粗细</div>
+						<div style="margin-top:10px;"> 
+								<div style="position:relative;height:20px;line-height:20px;width:150px;float:left;">
+									<img src="../../assets/tiao.png" mode="scaleToFill" style="width:150px;">
+									<span @touchmove="touchMove" style="position:absolute;display:inline-block;width:30px;height:30px;top:-6px;text-align:center;" :style="qiu">
+
+										<span  style="border-radius:50%;display:inline-block;width:15px;height:15px;margin-top:7px;" :style="scnei"></span>
+									</span>
+								</div>
+							
+								<span style="display:inline-block;width:30px;text-align:center;font-size:14px;float:left;">{{option.maxWidth}}</span>
+							
+							
+						</div>
+					</div>
+				</div>
+					<span class="iconfont classicon" @click="clear" style="color:#1296DB;position:relative;margin-left:10px;">&#xe624;</span>
+					<div class="buttons">
+						<van-button class="ag-btn" v-if="redirect_url" @click="backUrl">返回</van-button>
+						<van-button class="ag-btn" type="info" @click="sendImg">确定</van-button>
+					</div>
+				<div>
+
+				</div>
+				<!-- <van-icon class-prefix="iconfont" name="iconxiangpi" /> -->
+				<!-- <button @click="save">Save</button>
+				<button @click="clear">Clear</button>
+				<button @click="undo">Undo</button>
+				<button @click="addWaterMark">addWaterMark</button>
+				<button @click="handleDisabled">disabled</button> -->
+			</div>
+		 <VueSignaturePad width="100%" height="100%" class="dash" id="dash" ref="signature" :options="option"/>
 	</div>
 </template>
 
@@ -70,7 +71,9 @@
 // 请求接口
 import {qrSave} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
-// import '@/plugins/create.js'
+ import '@/plugins/create.js'
+ import jsonData from '../../../static/data.json'
+ 
 //  import VConsole from 'vconsole';
 //  let vConsole = new VConsole();
 export default {
@@ -84,12 +87,15 @@ export default {
 			phoneHeight:0,
 			phoneWidth:0,
 			$wrapper:null,
+			
 			option:{
-                // dotSize:0,
+                dotSize: (2.1 + 7) / 2,
 				penColor:"#000",
                 backgroundColor:"rgba(255, 255, 255, 0)",
-                minWidth:2.1,
-                maxWidth:6,
+                // minWidth:2.1,
+                // maxWidth:7,
+				  minWidth: 2.1,
+  					maxWidth: 6,
                 minDistance: 2,
 				throttle: 1,
 				// number:5,
@@ -136,18 +142,61 @@ export default {
 		  
 		this.init();
 		this.canvas=this.$refs.signature.$el.getElementsByTagName("canvas")[0];
-		this.stage.canvasWidth = this.canvas.offsetWidth-40;
-		this.stage.canvasHeight =this.canvas.offsetHeight+40;
-		 
+	 
+		this.stage.canvasWidth = this.canvas.offsetWidth;
+		this.stage.canvasHeight =this.canvas.offsetHeight;
 		this.phoneWidth = document.documentElement.clientWidth;
 		this.phoneHeight =  document.documentElement.clientHeight;
 		var box = document.getElementById("canvas-box");
 	 	this.$wrapper =  document.getElementById("J_wrapper");
 		window.onresize = this.detectOrient;
 		this.detectOrient(true);
-		//  this.cavasGO();
+		// this.chu();
+		
     },
 	methods:{
+		chu(){
+			// jsonData.forEach((item,index)=>{
+				
+			// 	 setTimeout(()=>{
+			// 		 this.toimg(item);
+			// 	 },(index+1)*200)
+			// })
+			// this.$refs.signature.fromData(jsonData) 这个是不要的
+
+
+			
+			// jsonData.forEach((item,index)=>{
+			// 	let obj = {
+			// 		p:[],
+			// 		t:[],
+			// 		x:[],
+			// 		y:[]
+			// 	}
+			 
+			// 	item.points.forEach((i,index)=>{
+			// 		obj.p.push(500);
+			// 		obj.t.push(i.time)
+			// 		obj.x.push(i.x)
+			// 		obj.y.push(i.y)
+			// 	})
+			// 	arr.push(obj)
+				 
+			// })
+			// console.log(JSON.stringify(arr))
+			 
+		},
+		toimg(item){
+			this.$refs.signature.fromData([item])
+		},
+		undo() {
+			this.$refs.signature.undoSignature();
+		},
+		save() {
+			const { isEmpty, data } = this.$refs.signature.saveSignature();
+			console.log(isEmpty);
+			console.log(data);
+		},
 		init(){
 			// var curWwwPath=window.document.location.href;
 			// var pos=curWwwPath.indexOf('/index.html');
@@ -199,8 +248,9 @@ export default {
 			var width = document.documentElement.clientWidth,
 				height =  document.documentElement.clientHeight,
 				$wrapper =  document.getElementById("J_wrapper"),
-				style = "";
-			console.log(width> height)
+				style = "",
+				style2 = "";
+		 
 			if( width >= height ){ // 横屏
 				this.isPortrait = false;
 				style += "width:" + width + "px;";  // 注意旋转后的宽高切换
@@ -208,6 +258,10 @@ export default {
 				style += "-webkit-transform: rotate(0); transform: rotate(0);";
 				style += "-webkit-transform-origin: 0 0;";
 				style += "transform-origin: 0 0;";
+				style2 += "left:0px;bottom:3px;width:100%;"
+			 
+				style2 += "-webkit-transform: rotate(0deg); transform: rotate(0deg);";
+				// style2 += "left:0;top:0"
 			}
 			else{ // 竖屏
 				this.isPortrait = true;
@@ -215,66 +269,50 @@ export default {
 				style += "height:" + width + "px;";
 				style += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
 				// 注意旋转中点的处理
+				let h = document.getElementsByClassName('iconfont')[0].offsetHeight + 14
 				style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;";
 				style += "transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+				style2 += "top:0;width:100vh;left:"+h+"px;"
+			 
+				style2 += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
+				 style2 += "transform-origin: 0 0;";
 			}
 			$wrapper.style.cssText = style;
-				 
-			 this._setSize(tag);
+			this.$refs.box.style.cssText = style2;
+			//  this._setSize(tag);
 			 
 		},
-		cavasGO(c){
-			 var self = this;
-			self.canvas =this.canvas;
-			self.stage = {
-				canvas :this.canvas
-			};
-			self.designWidth =this.canvas.offsetWidth // 1334;
-			self.designHeight =this.canvas.offsetHeight // 750;
-			var i = 1,   
-				modes = [
-					createjs.view.CONTAIN,
-					createjs.view.COVER,
-					createjs.view.FILL,
-					createjs.view.FIXED_WIDTH,
-					createjs.view.FIXED_HEIGHT
-				];
-			createjs.view.setViewMode(self.stage, self.designWidth, self.designHeight, modes[2], function(){
-				// 做任何你所需要的游戏内容层面的适配操作
-				//  _this.detectOrient();
-				var ctx=self.canvas.getContext("2d");
-				// createjs.view.adjustFullSize(ctx)
-				self.textTag = true;
-				console.log("开始旋转")
-			});
-
-			 
-			 
-		 
-		},
+	 
 		onBegin(e){
 			this.textTag = false;
 			this.lineTag = false
 		},
 		changeColor(e){
 			this.colorIndex = e.index;
-			this.$refs.signature.sig.penColor = e.color
+			// this.$refs.signature.sig.penColor = e.color
 			this.option.penColor = e.color;
 			this.scnei.backgroundColor = e.color
 		},
 		sendImg(){
 			var _this = this;
-			let isEmpty = _this.$refs.signature.isEmpty();
+	 
+			// return false;
+			const { isEmpty, data } = this.$refs.signature.saveSignature();
+			var toData = this.$refs.signature.toData()
+			// console.log(toData)
+			// let isEmpty = _this.$refs.signature.isEmpty();
 			 if(isEmpty){
 				 this.$toast.fail("请签字后提交");
 				 return false
 			 }
-			var png = _this.$refs.signature.save().split(",")[1];
+			 
+			var png = data.split(",")[1];//_this.$refs.signature.save().split(",")[1];
 			qrSave({
 				skey:this.id,
 					base64:png,
 					accessToken:this.accessToken,
-					rotate:this.isPortrait? 1: 0
+					rotate:this.isPortrait? 1: 0,
+					signArr:toData
 			},this.baseUrl).then((res) => { 
 				 
 				if(res.code!=200){
@@ -312,18 +350,18 @@ export default {
 		},
 		clear(){
 			var _this = this;
-			_this.$refs.signature.clear();
+			_this.$refs.signature.clearSignature();
 			this.textTag = true;
 		},
 		onChange(e){
+			//  console.log(this.$refs.signature)
 			 
-			 
-			this.$refs.signature.sig.maxWidth = e;
-			var width = e-3;
-			if(width<0){
-				width = 0.5
-			}
-			this.$refs.signature.sig.minWidth = width;
+			// this.$refs.signature.sig.maxWidth = e;
+			// var width = e-3;
+			// if(width<0){
+			// 	width = 0.5
+			// }
+			// this.$refs.signature.sig.minWidth = width;
 			
 			// this.option.penColor = e.color
 		},
@@ -365,9 +403,12 @@ export default {
 			// }
 			
 			 var style = '';
+			 var width = "";
+			 var height = ""
 			//  alert(JSON.stringify(this.stage))
 			if(self.isPortrait) {//竖屏
-
+			 	width = this.stage.canvasWidth ; 
+				 height = this.stage.canvasHeight;
 				style += "width:" + this.stage.canvasWidth + "px;";  // 注意旋转后的宽高切换
 				style += "height:" + this.stage.canvasHeight + "px;";
 				style += "-webkit-transform: rotate(-90deg); transform: rotate(-90deg);";
@@ -375,7 +416,9 @@ export default {
 				style += "transform-origin:"+ this.stage.canvasWidth / 2 + "px " + this.stage.canvasWidth / 2 +"px;";
 				// style+='border:2px solid red;'
 			}else { 
-				//  alert(this.$refs.box.offsetHeight)
+				//  alert(this.$refs.box.offsetHeight)\
+				width = this.$wrapper.offsetWidth ; 
+				 height = (this.$wrapper.offsetHeight-this.$refs.box.offsetHeight) ;
 				style += "width:" + (this.$wrapper.offsetWidth) + "px;";  // 注意旋转后的宽高切换
 				style += "height:" + (this.$wrapper.offsetHeight-this.$refs.box.offsetHeight) + "px;";
 				style += "-webkit-transform: rotate(0); transform: rotate(0);";
@@ -384,12 +427,16 @@ export default {
 				// style+='border:2px solid red;'
 			}
 			this.canvas.style.cssText = style;
-			// this.canvas.style.borderTop = "1px solid red"
+	 
+			this.canvas.setAttribute("width",width)
+			this.canvas.setAttribute("height",height)
+			this.canvas.style.border = "1px solid red"
 			// ...
 		},
 		// 贴边元素重定位核心处理函数
 		 touchMove(e){//滑动的动画
-			  
+			//   console.log(this.$refs.signature)
+			//   return false;
 			let tops = null;//150
 			// console.log(e.changedTouches[0])
 			if(this.isPortrait){
@@ -410,9 +457,9 @@ export default {
 				mins = 5.5
 			}
 			 
-			this.$refs.signature.sig.maxWidth = s;
-			this.$refs.signature.sig.minWidth = mins;
+			 
 			this.option.maxWidth = s;
+			this.option.minWidth = s;
 			this.sliderValue = step*s
 			this.qiu.left = step*s+"%";
 
@@ -435,7 +482,9 @@ body,html{
 	-webkit-text-size-adjust: none;
 -moz-text-size-adjust: none;
 -ms-text-size-adjust: none;
-text-size-adjust: none
+text-size-adjust: none;
+position: relative;
+z-index:99;
 }
 .container{
     width:100%;
@@ -461,33 +510,39 @@ text-size-adjust : 100%;
 }
 .box{
     position: fixed;
-    bottom:2px;
-	left:0px;
-	width:100%;
+    // bottom:2px;
+	// left:0px;
+	// width:100%;
 	height:40px;
 	line-height: 50px;
-	z-index: 101;
+	z-index: 500;
+	background-color: #fff;
 }
 .canvas-box{
 	height:100%;
 	width:100%;
-	padding:0 0 40px;
+	// padding:0 0 40px;
 	box-sizing:border-box;
 	background-color: #fff;
 	position: relative;
 }
 
 .dash{
-	position: relative;
+	position: fixed;
 	overflow: hidden;
 	// margin:0 20px;
-	
+	left:0;
+	top:0;
 	z-index: 100;
+}
+.dash canvas{
+	position: relative;
+	z-index: 101;
 }
 .down-cover{
 	// padding:0 0 30px;
 	position: relative;
-	top:-100%;
+	top:0;
 	left:0;
 	z-index: 50;
 	color: #BFBFBF;

@@ -73,9 +73,7 @@ import {qrSave} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
  import '@/plugins/create.js'
  import jsonData from '../../../static/data.json'
-import { constants } from 'zlib';
  
- console.log(jsonData)
 //  import VConsole from 'vconsole';
 //  let vConsole = new VConsole();
 export default {
@@ -147,25 +145,23 @@ export default {
 	 
 		this.stage.canvasWidth = this.canvas.offsetWidth;
 		this.stage.canvasHeight =this.canvas.offsetHeight;
-		 console.log(this.$refs.signature)
 		this.phoneWidth = document.documentElement.clientWidth;
 		this.phoneHeight =  document.documentElement.clientHeight;
 		var box = document.getElementById("canvas-box");
 	 	this.$wrapper =  document.getElementById("J_wrapper");
 		window.onresize = this.detectOrient;
 		this.detectOrient(true);
-		this.chu();
+		// this.chu();
 		
     },
 	methods:{
 		chu(){
-			jsonData.forEach((item,index)=>{
-
+			// jsonData.forEach((item,index)=>{
 				
-				 setTimeout(()=>{
-					 this.toimg(item);
-				 },(index+1)*200)
-			})
+			// 	 setTimeout(()=>{
+			// 		 this.toimg(item);
+			// 	 },(index+1)*200)
+			// })
 			// this.$refs.signature.fromData(jsonData) 这个是不要的
 
 
@@ -273,12 +269,13 @@ export default {
 				style += "height:" + width + "px;";
 				style += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
 				// 注意旋转中点的处理
+				let h = document.getElementsByClassName('iconfont')[0].offsetHeight + 14
 				style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;";
 				style += "transform-origin: " + width / 2 + "px " + width / 2 + "px;";
-				style2 += "right:6px;bottom:"+(height/2-40)+"px;width:"+(height+30)+"px;"
+				style2 += "top:0;width:100vh;left:"+h+"px;"
 			 
 				style2 += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
-				 
+				 style2 += "transform-origin: 0 0;";
 			}
 			$wrapper.style.cssText = style;
 			this.$refs.box.style.cssText = style2;
@@ -298,13 +295,11 @@ export default {
 		},
 		sendImg(){
 			var _this = this;
-		 
-			
-		 
-				console.log(JSON.stringify(_this.$refs.signature.toData()))
 	 
 			// return false;
 			const { isEmpty, data } = this.$refs.signature.saveSignature();
+			var toData = this.$refs.signature.toData()
+			// console.log(toData)
 			// let isEmpty = _this.$refs.signature.isEmpty();
 			 if(isEmpty){
 				 this.$toast.fail("请签字后提交");
@@ -316,7 +311,8 @@ export default {
 				skey:this.id,
 					base64:png,
 					accessToken:this.accessToken,
-					rotate:this.isPortrait? 1: 0
+					rotate:this.isPortrait? 1: 0,
+					signArr:toData
 			},this.baseUrl).then((res) => { 
 				 
 				if(res.code!=200){
