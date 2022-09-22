@@ -1,0 +1,23 @@
+
+// 如果添加了新的字体大小常量，在setFontSize.vue组件中的watch中添加对应的改变字体大小的方法
+$titleFontSize:var(--title-font-size,16.4px);
+
+$exceedMainFontSize:var(--exceed-main-font-size,16.5px);
+$mainFontSize:var(--main-font-size,16px);
+$subFontSize:var(--sub-font-size,14px);
+$exceedSubFontSize:var(--exceed-sub-font-size,14.5px);
+$lowerSubFontSize:var(--lower-sub-font-size,13px);
+
+$buttonFontSize:var(--button-font-size,16px);
+$bigButtonFontSize:var(--big-button-font-size,18px);
+$lowerButtonFontSize:var(--lower-button-font-size,14px);
+$smallButtonFontSize:var(--small-button-font-size,12px);
+
+$tagFontSize:var(--tag-font-size,11px);
+
+$timeFontSize:var(--time-font-size,12px);
+
+$blue:#59a7f7;
+$titleColor:#666666;
+$grayColor: #E6EBEE;
+$textGray:#999999;

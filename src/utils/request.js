@@ -4,6 +4,16 @@ import {Toast} from 'vant'
 // 根据环境不同引入不同api地址
 import {baseApi} from '@/config'
 // create an axios instance
+ 
+if(process.env.VUE_APP_ENV=='development'){
+
+}else{
+    var curWwwPath=window.document.location.href;// 
+    let sts = curWwwPath.split("/signPage/");
+    baseApi =sts[0]+"/signPage"
+
+}
+console.log(baseApi,"config")
 const service = axios.create({
   baseURL: baseApi, // url = base api url + request url
   // withCredentials: true, // send cookies when cross-domain requests

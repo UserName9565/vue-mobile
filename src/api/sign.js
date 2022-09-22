@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // api
 
 // 文文
-export function qrSave(params,baseUrl) {
+export function qrSave(params) {
   let str = ""
   if(params.accessToken){
     str = '/qrSealSave?accessToken='+params.accessToken
@@ -11,7 +11,7 @@ export function qrSave(params,baseUrl) {
     str = '/qrSealSave'
   }
   return request({
-    url: baseUrl+str,
+    url: str,
     method: 'post',
     data: params
   })
@@ -24,7 +24,7 @@ export function qrSave2(params,baseUrl) {
     str = '/seal-api/tPageSealService/saveQrCode'
   }
   return request({
-    url: baseUrl+str,
+    url: str,
     method: 'post',
     data: params
   })
@@ -32,7 +32,7 @@ export function qrSave2(params,baseUrl) {
 // 冯路
 export function qrSave1(params,baseUrl) {
   return request({
-    url: baseUrl+'/api/seal/saveSealQr',
+    url: '/api/seal/saveSealQr',
     method: 'post',
     data: params
   })
