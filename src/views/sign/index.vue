@@ -462,9 +462,10 @@ export default {
 			 
 			 
 			this.option.maxWidth = s;
-			this.option.minWidth = s;
-
-			
+			this.option.minWidth = mins;
+			this.$refs.signature.maxWidth = s
+			this.$refs.signature.maxWidth =mins
+			this.$refs.signature.dotSize = mins
 			this.sliderValue = step*s
 			this.qiu.left = step*s+"%";
 
