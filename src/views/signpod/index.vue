@@ -71,8 +71,8 @@
 // 请求接口
 import {qrSave} from '@/api/sign.js'
 import { Dialog,Toast } from 'vant';
- import '@/plugins/create.js'
- import jsonData from '../../../static/data.json'
+//  import '@/plugins/create.js'
+//  import jsonData from '../../../static/data.json'
  
 //  import VConsole from 'vconsole';
 //  let vConsole = new VConsole();
