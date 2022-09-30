@@ -3,6 +3,23 @@
 		 
 		 <div class="container main" id="J_wrapper" @click="lineTag = false">
 			 
+			
+			<div class="canvas-box" id="canvas-box">
+				
+				<!-- <vueSignature ref="signature" class="dash" id="dash" :sigOption="option" :w="'100%'" :h="'100%'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>  -->
+				
+				<div  class="down-cover" ref="down-cover" >
+				
+					<div v-if="textTag&&!successTag" class="centers">
+						<div>请在空白处签字</div>
+						<span style="font-size:12px;letter-spacing:2px;">请横屏签字</span>
+					</div>
+					<div v-if="successTag" class="centers">
+						<div>提交成功</div>
+						 
+					</div>
+				</div>
+			</div>
 			<van-dialog v-model="show" title="">
 				<div style="text-align:center">
 
@@ -10,21 +27,8 @@
 					<p>提交成功</p>
 				</div>
 			</van-dialog>
-			<div class="canvas-box" id="canvas-box">
-				
-				<!-- <vueSignature ref="signature" class="dash" id="dash" :sigOption="option" :w="'100%'" :h="'100%'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>  -->
-				
-				<div  class="down-cover" ref="down-cover" >
-				
-					<div v-if="textTag" class="centers">
-						<div>请在空白处签字</div>
-						<span style="font-size:12px;letter-spacing:2px;">请横屏签字</span>
-					</div>
-				</div>
-			</div>
-			
 		 </div>
-		 <div class="box" ref="box">
+		 <div class="box" ref="box" >
 				
 				<span class="colors">
 					<a  v-for="(item,index) in colors" @click="changeColor(item)" :class="{current:colorIndex==index}"  :style="{backgroundColor:item.color}" :key="index"><i></i></a>
@@ -63,7 +67,7 @@
 				<button @click="addWaterMark">addWaterMark</button>
 				<button @click="handleDisabled">disabled</button> -->
 			</div>
-		 <VueSignaturePad width="100%" height="100%" class="dash" id="dash" ref="signature" :options="option"/>
+		 <VueSignaturePad :style="opCss"  width="100%" height="100%" class="dash" id="dash" ref="signature" :options="option"/>
 	</div>
 </template>
 
@@ -83,6 +87,7 @@ export default {
 		return {
 			// rotate：0  不旋转  1 旋转
 			textTag:true,
+			successTag:false,
 			show:false,
 			phoneHeight:0,
 			phoneWidth:0,
@@ -134,7 +139,8 @@ export default {
 				canvasWidth:"",
 				canvasHeight:""
 			},
-			num:0
+			num:0,
+			opCss:{'z-index':'100'}
 			 
 		};
     },
@@ -327,11 +333,15 @@ export default {
 				}else{
 					if(_this.redirect_url){
 						_this.show = true;
+						// _this.successTag = true;
+						this.opCss = {'z-index':10}
 						setTimeout(function(){
 							location.href =decodeURIComponent(_this.redirect_url);
 						},3000)
 			          }else{
 						_this.show = true;
+						this.opCss = {'z-index':10}
+						// _this.successTag = true;
 						
 					}
 				}
@@ -463,9 +473,10 @@ export default {
 			 
 			this.option.maxWidth = s;
 			this.option.minWidth = mins;
-			this.$refs.signature.maxWidth = s
-			this.$refs.signature.maxWidth =mins
-			this.$refs.signature.dotSize = mins
+		 
+			this.$refs.signature.signaturePad.maxWidth = mins
+			this.$refs.signature.signaturePad.maxWidth =s
+			this.$refs.signature.signaturePad.dotSize = mins
 			this.sliderValue = step*s
 			this.qiu.left = step*s+"%";
 
