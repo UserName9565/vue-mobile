@@ -298,8 +298,9 @@ export default {
 		changeColor(e){
 			this.colorIndex = e.index;
 			// this.$refs.signature.sig.penColor = e.color
-			this.option.penColor = e.color;
+			// this.option.penColor = e.color;
 			this.scnei.backgroundColor = e.color
+			this.$refs.signature.signaturePad.penColor = e.color;
 		},
 		sendImg(){
 			var _this = this;
